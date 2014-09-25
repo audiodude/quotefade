@@ -44,8 +44,9 @@ def add_quote():
   existing = db.quotes.find_one({'_id': {'$gte': idx}})
   if not existing:
     db.quotes.insert({'_id': idx, 'data': quote});
-
-  return flask.jsonify({'status': 200})
+    return flask.jsonify({'status': 200})
+  else:
+    return 'Error', 500
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=debug)
