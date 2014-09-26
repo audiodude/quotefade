@@ -2,12 +2,19 @@ var QUOTES = [];
 
 var overall_idx = 0;
 var idx = 0;
+var hint_needed = true;
 var showing_quote = false;
 var waiting_on_quotes = false;
 var show_endcap_next = false;
 
 function show_endcap() {
   $('#new_quote').fadeIn();
+}
+
+function show_hint() {
+	if (hint_needed) {
+		$('#hint').fadeIn();
+	}
 }
 
 function replace_quotes(data) {
@@ -37,6 +44,9 @@ function on_frame_clicked(evt) {
   if (waiting_on_quotes || showing_quote) {
     return;
   }
+	hint_needed = false;
+	$('#hint').remove();
+
   var quote = QUOTES[idx];
   var div = $('<div></div>')
   div.text(quote.data);
@@ -46,6 +56,7 @@ function on_frame_clicked(evt) {
   }
   div.css('left', evt.clientX).css('top', evt.clientY);
   $('#frame').append(div)
+
 	showing_quote = true;
   setTimeout(function() {
     div.fadeOut(400, function() {
@@ -76,4 +87,5 @@ get_new_quotes();
 $(function() {
   $('#frame').click(on_frame_clicked);
   $('#quote-submit').click(on_quote_submission);
+	setTimeout(show_hint, 7000);
 });

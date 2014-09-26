@@ -37,3 +37,14 @@ body,
 #new_quote p {
   margin: 8px 0;
 }
+
+#frame div#hint {
+	color: #ccc;
+	left: 42%;
+	margin-left: -50px;
+  margin-top: -10px;
+  position: absolute;
+	top: 50%;
+	text-align: center;
+	width: 100px;
+}
