@@ -74,7 +74,8 @@ function on_quote_submission() {
     'method': 'POST',
     'data': {
       'last_idx': overall_idx,
-      'quote': $('#quote').val()
+      'quote': $('#quote').val(),
+			'token': TOKEN
     },
     'success': function() {
       window.location.reload();
