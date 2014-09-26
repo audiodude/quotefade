@@ -13,7 +13,7 @@ if MONGO_URI:
   debug = False
 else:
   client = pymongo.MongoClient()
-  db = client.fade_dev
+  db = client.quotefade_dev
   debug = True
 
 @app.route('/')
@@ -38,7 +38,7 @@ def get_quotes():
 
 @app.route('/add_quote', methods=['POST'])
 def add_quote():
-  quote = flask.request.form['quote']
+  quote = flask.request.form['quote'][:256]
   idx = int(flask.request.form['last_idx'])
 
   existing = db.quotes.find_one({'_id': {'$gte': idx}})

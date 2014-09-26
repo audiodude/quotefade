@@ -2,6 +2,7 @@ var QUOTES = [];
 
 var overall_idx = 0;
 var idx = 0;
+var showing_quote = false;
 var waiting_on_quotes = false;
 var show_endcap_next = false;
 
@@ -33,7 +34,7 @@ function get_new_quotes() {
 }
 
 function on_frame_clicked(evt) {
-  if (waiting_on_quotes) {
+  if (waiting_on_quotes || showing_quote) {
     return;
   }
   var quote = QUOTES[idx];
@@ -45,13 +46,15 @@ function on_frame_clicked(evt) {
   }
   div.css('left', evt.clientX).css('top', evt.clientY);
   $('#frame').append(div)
+	showing_quote = true;
   setTimeout(function() {
     div.fadeOut(400, function() {
+			showing_quote = false;
       div.remove();
+			if (show_endcap_next) {
+				show_endcap();
+			}
     });
-    if (show_endcap_next) {
-      show_endcap();
-    }
   }, quote.data.length * 34);
 }
 
