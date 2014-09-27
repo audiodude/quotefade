@@ -6,15 +6,23 @@ body,
 
 #frame {
   position: relative;
-  width: 120%;
+  width: 100%;
 }
 
-#frame div {
+.quote {
+	font-size: 12px;
+	line-height: 20px;
+	max-width: 50%;
   font-family: Arial, sans-serif;
-  font-size: 16px;
-  line-height: 20px;
   position: absolute;
-  width: 400px;
+}
+
+#frame div#hitarea {
+	height: 100%;
+	left: 0;
+  position: absolute;
+	top: 0;
+	width: 80%;
 }
 
 #new_quote {
@@ -35,7 +43,17 @@ body,
 }
 
 #new_quote p {
+	font-size: 14px;
   margin: 8px 0;
+}
+
+.new-quote-wrapper {
+  width: 80%;
+	margin: 0 auto;
+}
+
+.new-quote-wrapper textarea {
+  max-width: 100%;
 }
 
 #frame div#hint {
@@ -47,4 +65,16 @@ body,
 	top: 50%;
 	text-align: center;
 	width: 100px;
+}
+
+@media (min-width:640px) {
+	.quote {
+    font-size: 16px;
+    line-height: 20px;
+		max-width: 30%;
+  }
+
+	#new_quote h1 {
+	  font-size: 18px;
+	}
 }

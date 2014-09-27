@@ -40,7 +40,7 @@ function get_new_quotes() {
   });
 }
 
-function on_frame_clicked(evt) {
+function on_hitarea_clicked(evt) {
   if (waiting_on_quotes || showing_quote) {
     return;
   }
@@ -48,7 +48,7 @@ function on_frame_clicked(evt) {
 	$('#hint').remove();
 
   var quote = QUOTES[idx];
-  var div = $('<div></div>')
+  var div = $('<div class="quote"></div>')
   div.text(quote.data);
   idx++;
   if (idx >= QUOTES.length) {
@@ -86,7 +86,7 @@ function on_quote_submission() {
 get_new_quotes();
 
 $(function() {
-  $('#frame').click(on_frame_clicked);
+  $('#hitarea').click(on_hitarea_clicked);
   $('#quote-submit').click(on_quote_submission);
 	setTimeout(show_hint, 7000);
 });
