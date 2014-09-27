@@ -70,6 +70,11 @@ function on_hitarea_clicked(evt) {
 }
 
 function on_quote_submission() {
+	if ($('#quote').val().length == 0) {
+		$('#error').text('You should try entering a quote first...');
+		return;
+	}
+
 	$('#error').text('');
   $.ajax('/add_quote', {
     'method': 'POST',
