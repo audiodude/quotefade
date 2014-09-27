@@ -34,7 +34,7 @@ function get_new_quotes() {
     'dataType': 'json',
     'data': {
       'start': overall_idx,
-      'count': 2
+      'count': 5
     },
     success: replace_quotes
   });
@@ -70,6 +70,7 @@ function on_hitarea_clicked(evt) {
 }
 
 function on_quote_submission() {
+	$('#error').text('');
   $.ajax('/add_quote', {
     'method': 'POST',
     'data': {
@@ -77,9 +78,19 @@ function on_quote_submission() {
       'quote': $('#quote').val(),
 			'token': TOKEN
     },
-    'success': function() {
-      window.location.reload();
-    }
+    'success': function(data) {
+			if (data['error']) {
+				$('#error').text(data['error']);
+				if (data['last_idx']) {
+					overall_idx = data['last_idx'];
+				}
+			} else {
+				window.location.reload();
+			}
+    },
+		'error': function() {
+			$('#error').text('An unexpected error has occurred. Try again?');
+		}
   });
 }
 
