@@ -47,6 +47,16 @@ body,
   margin: 8px 0;
 }
 
+#new_quote a,
+#new_quote a:visited {
+  color: #999;
+	text-decoration: none;
+}
+
+#new_quote a:hover {
+  text-decoration: underline;
+}
+
 .new-quote-wrapper {
   width: 80%;
 	margin: 0 auto;
@@ -69,6 +79,11 @@ body,
 
 #error {
   color: red;
+}
+
+#new_quote p#credit {
+	margin-top: 16px;
+	font-size: 11px;
 }
 
 @media (min-width:640px) {
