@@ -75,6 +75,11 @@ function on_quote_submission() {
 		return;
 	}
 
+	if ($('#quote').val().match(/^\s*$/)) {
+		$('#error').text('Try entering a quote with some actual letters...');
+		return;
+	}
+
 	$('#error').text('');
   $.ajax('/add_quote', {
     'method': 'POST',

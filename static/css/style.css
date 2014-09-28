@@ -66,9 +66,9 @@ body,
   max-width: 100%;
 }
 
-#frame div#hint {
+#hint {
 	color: #ccc;
-	left: 42%;
+	left: 50%;
 	margin-left: -50px;
   margin-top: -10px;
   position: absolute;
