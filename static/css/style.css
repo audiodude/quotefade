@@ -17,12 +17,13 @@ body,
   position: absolute;
 }
 
-#frame div#hitarea {
-	height: 100%;
-	left: 0;
+#hitarea {
+  cursor: pointer;
+  height: 100%;
+  left: 0;
   position: absolute;
-	top: 0;
-	width: 80%;
+  top: 0;
+  width: 80%;
 }
 
 #new_quote {
@@ -43,7 +44,7 @@ body,
 }
 
 #new_quote p {
-	font-size: 14px;
+  font-size: 14px;
   margin: 8px 0;
 }
 
@@ -59,7 +60,7 @@ body,
 
 .new-quote-wrapper {
   width: 80%;
-	margin: 0 auto;
+  margin: 0 auto;
 }
 
 .new-quote-wrapper textarea {
@@ -67,14 +68,14 @@ body,
 }
 
 #hint {
-	color: #ccc;
-	left: 50%;
-	margin-left: -50px;
+  color: #ccc;
+  left: 50%;
+  margin-left: -50px;
   margin-top: -10px;
   position: absolute;
-	top: 50%;
-	text-align: center;
-	width: 100px;
+  top: 50%;
+  text-align: center;
+  width: 100px;
 }
 
 #error {
@@ -82,18 +83,18 @@ body,
 }
 
 #new_quote p#credit {
-	margin-top: 16px;
-	font-size: 11px;
+  margin-top: 16px;
+  font-size: 11px;
 }
 
 @media (min-width:640px) {
-	.quote {
+  .quote {
     font-size: 16px;
     line-height: 20px;
-		max-width: 30%;
+    max-width: 30%;
   }
 
-	#new_quote h1 {
-	  font-size: 18px;
-	}
+  #new_quote h1 {
+    font-size: 18px;
+  }
 }
