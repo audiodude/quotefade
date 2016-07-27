@@ -30,13 +30,13 @@ def find_available_index(max_id):
 
 @app.route('/')
 def index():
-  ops = db.ops.find_one({})
-  token = binascii.b2a_hex(os.urandom(16))
+  ops = db.ops.find_one({}) or {}
+  token = binascii.b2a_hex(os.urandom(16)).decode('utf-8')
   # TODO: cleanup these timestamps as a cron job.
   db.timestamps.insert({
       'timestamp': datetime.datetime.now(),
       'token': token,
-      'count': ops['count'],
+      'count': ops.get('count', 0),
   })
   return flask.render_template('index.html', token=token)
 

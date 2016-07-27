@@ -47,6 +47,11 @@ function on_hitarea_clicked(evt) {
 	hint_needed = false;
 	$('#hint').remove();
 
+  if (QUOTES.length == 0) {
+    show_endcap();
+    return;
+  }
+
   var quote = QUOTES[idx];
   var div = $('<div class="quote"></div>')
   div.text(quote.data);
