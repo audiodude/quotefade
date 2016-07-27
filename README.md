@@ -1,7 +1,4 @@
-To initialize the database, run init.py with the first argument being
-the first quote that should be added:
-
-$ python init.py "Knowledge is power"
+A simple quote displaying/querying app.
 
 If there is a MONGOLAB_URI in the environment, it will be used as the database
 to populate. Otherwise, the script will attempt to connect to the database
