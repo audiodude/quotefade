@@ -114,5 +114,5 @@ get_new_quotes();
 $(function() {
   $('#hitarea').click(on_hitarea_clicked);
   $('#quote-submit').click(on_quote_submission);
-	setTimeout(show_hint, 7000);
+	setTimeout(show_hint, 3500);
 });
